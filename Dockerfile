@@ -12,4 +12,4 @@ COPY . .
 EXPOSE 8000
 
 # CMD ["uv", "run", "src/manage.py", "runserver", "0.0.0.0:8000"]
-CMD ["uv", "run", "granian", "sclass.asgi:application", "--interface", "asgi", "--port", "8000", "--host", "0.0.0.0"]
+CMD ["uv", "run", "granian", "cpdp.asgi:application", "--interface", "asgi", "--port", "8000", "--host", "0.0.0.0"]
