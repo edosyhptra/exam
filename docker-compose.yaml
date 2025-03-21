@@ -1,3 +1,5 @@
+version: '3'
+
 services:
   # Redis
   # redis:
@@ -16,7 +18,64 @@ services:
       - postgresql:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - app-network
+  
+  # App
+  # app:
+  #     image: test-deployed-app
+  #     environment:
+  #       DATABASE_URL: postgres://edo:edo@postgresql:5432/edo
+  #     depends_on:
+  #       - postgresql
+  #     ports:
+  #       - "8000:8000"
+  #     networks:
+  #       - app-network
 
+  app:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: edosyhtptra/exam:v0.0.0
+    environment:
+      # - DATABASE_URL=postgres://edo:edo@postgresql:5432/edo
+      - DATABASE_URL= postgres://edo@postgresql:5432/exam
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+  
+networks:
+  app-network:
+    driver: bridge
+  
 volumes:
   postgresql:
     driver: local
+    # minio_data:
+    #   driver: local
+    # minio_data2:
+    #   driver: local
+
+  # Mailhog
+  # mailhog:
+  #   image: docker.io/mailhog/mailhog
+  #   ports:
+  #     - "1025:1025"   # mailhog SMTP
+  #     - "8025:8025"   # mailhog Interface
+  
+  # Minio S3 server
+  # minio:
+  #   image: docker.io/bitnami/minio:latest
+  #   environment:
+  #     - MINIO_ROOT_USER=admin
+  #     - MINIO_ROOT_PASSWORD=miniosecret
+  #     - MINIO_DEFAULT_BUCKETS=dalang-assets
+  #     - BITNAMI_DEBUG=true
+  #   volumes:
+  #     - 'minio_data:/data-minio'
+  #     - 'minio_data2:/data'
+  #   ports:
+  #     - "9000:9000"   # Minio S3 server
+  #     - "9001:9001"   # Minio Console
