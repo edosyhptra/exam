@@ -12,6 +12,27 @@ wheels = [
 ]
 
 [[package]]
+name = "click"
+version = "8.1.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a", size = 226593 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7e/d4/7ebdbd03970677812aac39c869717059dbb71a4cfc033ca6e5221787892c/click-8.1.8-py3-none-any.whl", hash = "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2", size = 98188 },
+]
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44", size = 27697 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6", size = 25335 },
+]
+
+[[package]]
 name = "django"
 version = "5.1.7"
 source = { registry = "https://pypi.org/simple" }
@@ -41,6 +62,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "django" },
     { name = "django-environ" },
+    { name = "granian" },
     { name = "psycopg2-binary" },
 ]
 
@@ -48,7 +70,33 @@ dependencies = [
 requires-dist = [
     { name = "django", specifier = ">=5.1.7" },
     { name = "django-environ", specifier = ">=0.12.0" },
+    { name = "granian", specifier = ">=2.1.1" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
+]
+
+[[package]]
+name = "granian"
+version = "2.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f2/74/f30dd0164b9455555a4e23ca3065e3fabb069cf5706b157d21e926c1e526/granian-2.1.1.tar.gz", hash = "sha256:c8f6d10b2e8689455c4bef9736590a01f8fdfeb9171e337c7a95554dfee70d50", size = 93412 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fd/60/c2b7ca9fe598a34ddbd8fd4d2e303355eede43eea8d0f38909860b323f1c/granian-2.1.1-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:5ce99623a5958dac879bca8157dbaf8d3d02e3a78ac6c7fc3858a9fa075cc4c1", size = 2854789 },
+    { url = "https://files.pythonhosted.org/packages/1a/16/8c90bd4b3b06eafda6c2db74ae9fee0440c22d32e010659c0e0d0ea4a46f/granian-2.1.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:81281b40c9bd26dcb99bc867e91b8ef06e4c5af52ac276d7a33d3521ad560f79", size = 2620510 },
+    { url = "https://files.pythonhosted.org/packages/ff/66/c4546dfff3f15835350d5632a83da7c8992a4ad7850ba5655b4757d9e3f1/granian-2.1.1-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4abe412fde24f3ac6655882bbdde750b4eb1125ce6c74d513319ffeda01dd0a4", size = 2959365 },
+    { url = "https://files.pythonhosted.org/packages/74/4a/bfbc265f8dabecfc9282ca48f7088680c960e8728612922279dd963239e6/granian-2.1.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3a2b72e68536f47146b0063a28c025fbd9c93cc2d136df168277dcb392b535a7", size = 3056842 },
+    { url = "https://files.pythonhosted.org/packages/fb/fe/24a2088d12ee2cb34f8906f452e7aded77c4fde390cf28bf8b9f85a9e44b/granian-2.1.1-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:41ad80b5b7391876793c7b71972baa942c83e8ac8f08d1c70b33cab2fae13e0c", size = 2908065 },
+    { url = "https://files.pythonhosted.org/packages/85/1d/6bc7739d356861a290dbf2ea073b1e679782fc2ed00ce6945519b5937087/granian-2.1.1-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:01bc36529c127bf13401d0c4d563c7a104dccbc2b222e398265f89622bb6dfd4", size = 3001880 },
+    { url = "https://files.pythonhosted.org/packages/a0/1e/944e2788b7d97ddb2622c19b4eb280ed732a74988751d4c1015cd6c576b6/granian-2.1.1-cp313-cp313-win_amd64.whl", hash = "sha256:fed892c45c5e22ace19a4f84d724e0bc49471163a1ddfa557aef336cfb87cb3d", size = 2609270 },
+    { url = "https://files.pythonhosted.org/packages/d6/e9/892918d39ff6e1628e5643e0bbd901921f97159fd097afa7712f09246cae/granian-2.1.1-cp313-cp313t-macosx_10_12_x86_64.whl", hash = "sha256:1cc431b0929ba56cf0fa6232292523a4a866a4cc4ec09351cfa6ff5ae5ba86e8", size = 2722838 },
+    { url = "https://files.pythonhosted.org/packages/3e/9f/7c7c5ab041821434465e6eaa2f5f8a1c5ca629efd86755c623fbc0628b14/granian-2.1.1-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:438c4af6a6c9d97014dad57931c36603f1f95403798db4ed2deed296991488a5", size = 2475737 },
+    { url = "https://files.pythonhosted.org/packages/09/9d/c2dc8b98643fdcce09787f1b3bd9b1348abf13d5c8f3d73f4ccf87bd0965/granian-2.1.1-cp313-cp313t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:49bdf14847b2cdb20b7995dcb18626101110ac7da29155d5ea2ec33c7ca3bcba", size = 2731986 },
+    { url = "https://files.pythonhosted.org/packages/13/da/b52e70184838b5b70f94f970301608b5ede9b8314cec65772e3e959d8900/granian-2.1.1-cp313-cp313t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fecd3aa80b8e079a189a65d49de9e878fe8ffab4672535f2c00ac67f64d009ad", size = 2827178 },
+    { url = "https://files.pythonhosted.org/packages/c3/c6/d9cc9d2ae8ea9db3a01b9be1d04d9faed7d8e2d095981d6d85a07befe7d5/granian-2.1.1-cp313-cp313t-musllinux_1_1_aarch64.whl", hash = "sha256:7b7f14ffb2e5a66cdadd624260b192699e6c44367911e237e28eb293d6345da9", size = 2898889 },
+    { url = "https://files.pythonhosted.org/packages/eb/c0/1c17640eac7205c1666063c043a16edadec5d7a42d437ec425ccb3be7955/granian-2.1.1-cp313-cp313t-musllinux_1_1_x86_64.whl", hash = "sha256:31dfa5fb77f03ff1b5196e9643a8cb55b4e5f3ab07606d7d03f94da17f4701a5", size = 2996420 },
+    { url = "https://files.pythonhosted.org/packages/11/04/a43111bbd41a47f28d9f3fc30eab750aa7e0eded4b593b368dd1357035ef/granian-2.1.1-cp313-cp313t-win_amd64.whl", hash = "sha256:dd1ea5f44a9c6917a009ed78b9c4b56f6513e2ce0024a7f13a3a5a2e39fbaa38", size = 2535520 },
 ]
 
 [[package]]
