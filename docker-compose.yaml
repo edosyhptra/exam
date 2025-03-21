@@ -37,7 +37,7 @@ services:
     # build:
     #   context: .
     #   dockerfile: Dockerfile
-    image: edosyhtptra/exam:v0.0.0
+    image: edosyhtptra/exam:v0.0.1
     environment:
       # - DATABASE_URL=postgres://edo:edo@postgresql:5432/edo
       - DATABASE_URL= postgres://edo@postgresql:5432/exam
