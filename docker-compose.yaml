@@ -1,0 +1,22 @@
+services:
+  # Redis
+  # redis:
+  #   image: docker.io/redis:alpine
+  #   ports:
+  #     - "6379:6379"
+    
+  # PostgreSQL
+  postgresql:
+    image: docker.io/postgres:latest
+    environment:
+      POSTGRES_USER: edo
+      POSTGRES_DB: exam
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgresql:
+    driver: local
