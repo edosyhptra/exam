@@ -1,0 +1,17 @@
+# kubectl -n ccdp apply -f pod.yaml
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: exercise-app
+  labels:
+    app: exercise-app
+spec:
+  containers:
+    - name: exercise-app
+      image: edosyhtptra/basic-crud2:v0.0.0
+      ports:
+        - containerPort: 8000
+    - name: sidecar-busybox
+      image: busybox
+      command: ['sh', '-c', 'while true; do echo Hello from the sidecar; sleep 3600; done']

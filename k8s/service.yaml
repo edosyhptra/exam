@@ -1,0 +1,31 @@
+# # kubectl -n ccdp apply -f service.yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aplikasi-django
+  labels:
+    app: aplikasi-django
+spec:
+  type: NodePort
+  selector:
+    app: aplikasi-django
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: exercise-app-service
+#   labels:
+#     app: exercise-app-service
+# spec:
+#   selector:
+#     app: exercise-app
+#   # type: ClusterIP # default, can be NodePort, LoadBalancer, ExternalName
+#   ports:
+#     - protocol: TCP
+#       port: 80 # port of service
+#       targetPort: 8000 # port of application/pod
+#       # nodePort: 80  # NodePort you want to expose

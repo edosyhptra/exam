@@ -1,0 +1,80 @@
+# # kubectl -n ccdp apply -f ingress.yaml
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: exercise-app
+#   annotations:
+#     # ingress can provide SSL
+#     cert-manager.io/cluster-issuer: letsencrypt-issuer
+
+#     # https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/basic-configuration/
+#     nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+#     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+#     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+#   labels:
+#     app: exercise-app
+# spec:
+#   ingressClassName: public # use "nginx" if not using microk8s
+#   rules:
+#     - host: ccdp.edosyhtptra.dev
+#       http:
+#         paths:
+#           - path: /
+#             # Prefix: /foo matches /foo and /foo/bar
+#             # Exact: /foo matches /foo and nothing else
+#             # ImplementationSpecific: the path type is up to the IngressClass
+#             pathType: Prefix # can be ImplementationSpecific, Exact
+#             backend:
+#               service:
+#                 name: exercise-app # must be in same namespace
+#                 port:
+#                   number: 80 # port of service
+#           # - path: /blog
+#           #   pathType: Prefix
+#           #   backend:
+#           #     service:
+#           #       name: blog
+#           #       port:
+#           #         number: 80
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: exercise-app
+#   namespace: ccdp
+#   annotations:
+#     kubernetes.io/ingress.class: "nginx"  # Ensure this is set correctly
+#     cert-manager.io/cluster-issuer: letsencrypt-issuer
+# spec:
+#   ingressClassName: nginx  # <-- Add this line
+#   rules:
+#     - host: aplikasi-django.komputerku
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service: 
+#                 name: aplikasi-django
+#                 port: 
+#                   number: 80
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: exercise-app
+spec:
+  rules:
+    - host: edo.local.app
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: exercise-app-service
+                port:
+                  number: 80
+
+  ingressClassName: public
